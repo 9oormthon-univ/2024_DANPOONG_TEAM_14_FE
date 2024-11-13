@@ -19,6 +19,16 @@ export const ActionButtons = ({
         {children}
       </button>
     )
+  } else if (children === "로그아웃") {
+    return (
+      <button
+        className="w-[320px] h-[55px] bg-[#F1F1F1] text-[#3284FF] text-[14px] font-bold rounded-[10px] cursor-pointer"
+        onClick={onClick}
+        disabled={disabled}
+      >
+        {children}
+      </button>
+    )
   }
 
   return (

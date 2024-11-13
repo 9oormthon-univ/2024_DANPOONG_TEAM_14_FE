@@ -10,40 +10,42 @@ export const Header = () => {
 
   if (location.pathname === "/accept" || location.pathname === "/types") {
     return (
-      <div className="flex bg-[#FFFFFF] relative justify-center items-center pt-[29px]">
-        <div
-          className="absolute left-[35px] top-[59px]"
-          onClick={() => {
-            if (location.pathname === "/types") {
-              navigate("/accept")
-            } else if (location.pathname === "/accept") {
-              navigate("/login")
-            }
-          }}
-        >
-          <IoIosArrowBack className="text-[#989898] text-[26px]" />
-        </div>
-        {location.pathname === "/accept" && (
-          <div>
-            <span className="text-[14px] text-[#B3B3B3] font-bold">
-              약관 동의
-            </span>
+      <div className="w-[393px] h-[150px]">
+        <div className="flex bg-[#FFFFFF] relative justify-center items-center pt-[29px]">
+          <div
+            className="absolute left-[35px] top-[59px]"
+            onClick={() => {
+              if (location.pathname === "/types") {
+                navigate("/accept")
+              } else if (location.pathname === "/accept") {
+                navigate("/login")
+              }
+            }}
+          >
+            <IoIosArrowBack className="text-[#989898] text-[26px]" />
           </div>
-        )}
-        {location.pathname === "/types" && (
-          <div className="flex absolute right-[38px] top-[59px]">
+          {location.pathname === "/accept" && (
             <div>
-              <span className="text-[14px] font-bold text-[#CDCDCD]">
-                Kakao
+              <span className="text-[14px] text-[#B3B3B3] font-bold">
+                약관 동의
               </span>
             </div>
-            <div className="w-[24px] h-[24px] bg-[#CDCDCD] rounded-[10px] flex items-center justify-center ml-[9px]">
+          )}
+          {location.pathname === "/types" && (
+            <div className="flex absolute right-[38px] top-[59px]">
               <div>
-                <FaUser className="text-[#ffffff]" />
+                <span className="text-[14px] font-bold text-[#CDCDCD]">
+                  Kakao
+                </span>
+              </div>
+              <div className="w-[24px] h-[24px] bg-[#CDCDCD] rounded-[10px] flex items-center justify-center ml-[9px]">
+                <div>
+                  <FaUser className="text-[#ffffff]" />
+                </div>
               </div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     )
   }
@@ -97,5 +99,5 @@ export const Header = () => {
     )
   }
 
-  return <div>header</div>
+  return null
 }
