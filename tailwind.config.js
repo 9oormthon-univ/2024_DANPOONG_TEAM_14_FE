@@ -13,6 +13,9 @@ export default {
         black_03: "#e2e2e2",
         white_bg: "#ffffff",
       },
+      fontFamily: {
+        goorm: ["Goorm Sans", "sans-serif"],
+      },
     },
   },
   plugins: [],

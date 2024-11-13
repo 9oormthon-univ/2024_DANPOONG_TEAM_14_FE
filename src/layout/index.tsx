@@ -7,8 +7,8 @@ export const Layout = () => {
   const location = useLocation()
 
   return (
-    <div>
-      <div className="text-black_01">
+    <div className="relative">
+      <div className="text-black_01 w-[390px]">
         <div className="fixed top-0 left-0 z-10 w-full bg-black_03">
           <Header />
         </div>

@@ -1,14 +1,15 @@
 import { IoIosArrowBack } from "react-icons/io"
 import { useLocation, useNavigate } from "react-router-dom"
+import { FaUser } from "react-icons/fa6"
 
 export const Header = () => {
   const location = useLocation()
   const navigate = useNavigate()
 
   return (
-    <div className="flex bg-[#FFFFFF] relative justify-center items-center pt-[15px]">
+    <div className="flex bg-[#FFFFFF] relative justify-center items-center pt-[29px]">
       <div
-        className="absolute left-[14px] top-[15px]"
+        className="absolute left-[35px] top-[59px]"
         onClick={() => {
           if (location.pathname === "/types") {
             navigate("/accept")
@@ -17,13 +18,27 @@ export const Header = () => {
           }
         }}
       >
-        <IoIosArrowBack className="text-[#B3B3B3] text-[26px]" />
+        <IoIosArrowBack className="text-[#989898] text-[26px]" />
       </div>
-      <div>
-        {location.pathname === "/accept" && (
-          <span className="text-[20px] font-bold">약관 동의</span>
-        )}
-      </div>
+      {location.pathname === "/accept" && (
+        <div>
+          <span className="text-[14px] text-[#B3B3B3] font-bold">
+            약관 동의
+          </span>
+        </div>
+      )}
+      {location.pathname === "/types" && (
+        <div className="flex absolute right-[38px] top-[59px]">
+          <div>
+            <span className="text-[14px] font-bold text-[#CDCDCD]">Kakao</span>
+          </div>
+          <div className="w-[24px] h-[24px] bg-[#CDCDCD] rounded-[10px] flex items-center justify-center ml-[9px]">
+            <div>
+              <FaUser className="text-[#ffffff]" />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

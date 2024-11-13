@@ -18,10 +18,10 @@ export const AcceptPage = () => {
 
   return (
     <div>
-      <div className="mt-[82px] ml-[21px]">
-        <span className="text-[16px] font-bold">약관동의</span>
+      <div className="mt-[125px] ml-[45px]">
+        <span className="text-[18px] font-bold">약관동의</span>
       </div>
-      <div className="font-bold mt-[15px] mb-[16px]">
+      <div className="font-bold mt-[43px] mb-[27px]">
         <CheckboxInput
           onChange={(e) => {
             setAllChecked(e.target.checked)
@@ -35,7 +35,7 @@ export const AcceptPage = () => {
         </CheckboxInput>
       </div>
       <hr className="w-[344px] h-[0.5px] bg-[#B3B3B3] font-bold ml-[22px]" />
-      <ul className="list-none flex flex-col gap-[20px] mt-[21px]">
+      <ul className="list-none flex flex-col gap-[27px] mt-[30px]">
         <li className="relative">
           <CheckboxInput
             onChange={(e) => {
@@ -45,7 +45,7 @@ export const AcceptPage = () => {
           >
             이용약관 동의
           </CheckboxInput>
-          <span className="text-[#0085FF] text-[8px] absolute top-[2px] left-[144px]">
+          <span className="text-[#0085FF] text-[12px] font-medium absolute top-[2px] left-[160px]">
             (필수)
           </span>
         </li>
@@ -58,11 +58,8 @@ export const AcceptPage = () => {
           >
             위치기반 서비스 이용 약관 동의
           </CheckboxInput>
-          <span className="text-[#0085FF] text-[8px] absolute top-[2px] left-[258px]">
+          <span className="text-[#0085FF] text-[12px] font-medium absolute top-[2px] left-[257px]">
             (필수)
-          </span>
-          <span className="text-[#B3B3B3] text-[8px] absolute right-[24px] top-[2px]">
-            약관보기
           </span>
         </li>
         <li className="relative">
@@ -74,12 +71,12 @@ export const AcceptPage = () => {
           >
             개인정보 수집 및 이용 동의
           </CheckboxInput>
-          <span className="text-[#0085FF] text-[8px] absolute top-[2px] left-[228px]">
+          <span className="text-[#0085FF] text-[12px] font-medium absolute top-[2px] left-[232px]">
             (필수)
           </span>
         </li>
       </ul>
-      <div className="mt-[496px] text-center">
+      <div className="mt-[396px] text-center">
         <ActionButtons
           onClick={() => navigate("/types")}
           disabled={!allChecked}

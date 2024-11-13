@@ -3,7 +3,7 @@ import { Layout } from "../layout"
 import { LoginPage } from "../pages/login/LoginPage"
 import { AcceptPage } from "../pages/accept/AcceptPage"
 import { TypeSelectPage } from "../pages/type/TypeSelectPage"
-import { FirstStartPage } from "../pages/done/FirstStartPage"
+import { StartPage } from "../pages/done/StartPage"
 
 export const router = createBrowserRouter([
   {
@@ -42,6 +42,6 @@ export const router = createBrowserRouter([
   },
   {
     path: "/done",
-    element: <FirstStartPage />,
+    element: <StartPage />,
   },
 ])
