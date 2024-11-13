@@ -4,6 +4,7 @@ import { LoginPage } from "../pages/login/LoginPage"
 import { AcceptPage } from "../pages/accept/AcceptPage"
 import { TypeSelectPage } from "../pages/type/TypeSelectPage"
 import { StartPage } from "../pages/done/StartPage"
+import { MainPage } from "../pages/main/MainPage"
 
 export const router = createBrowserRouter([
   {
@@ -43,5 +44,15 @@ export const router = createBrowserRouter([
   {
     path: "/done",
     element: <StartPage />,
+  },
+  {
+    path: "/circle-me",
+    element: <Layout />,
+    children: [
+      {
+        path: "/circle-me",
+        element: <MainPage />,
+      },
+    ],
   },
 ])
