@@ -1,3 +1,5 @@
+import { useLocation } from "react-router-dom"
+
 export const ActionButtons = ({
   children,
   onClick,
@@ -7,6 +9,8 @@ export const ActionButtons = ({
   onClick: () => void
   disabled: boolean
 }) => {
+  const location = useLocation()
+
   if (children === "다음" || children === "완료") {
     return (
       <button
@@ -22,7 +26,21 @@ export const ActionButtons = ({
   } else if (children === "로그아웃") {
     return (
       <button
-        className="w-[320px] h-[55px] bg-[#F1F1F1] text-[#3284FF] text-[14px] font-bold rounded-[10px] cursor-pointer"
+        className={`w-[320px] h-[55px] ${
+          location.pathname.includes("/edit")
+            ? "bg-[#FFD332] text-[#FFFFFF]"
+            : "bg-[#F1F1F1] text-[#3284FF]"
+        } text-[14px] font-bold rounded-[10px] cursor-pointer`}
+        onClick={onClick}
+        disabled={disabled}
+      >
+        {children}
+      </button>
+    )
+  } else if (children === "회원탈퇴") {
+    return (
+      <button
+        className={`w-[320px] h-[55px] bg-[#3284FF] text-[#FFFFFF] text-[14px] font-bold rounded-[10px] cursor-pointer`}
         onClick={onClick}
         disabled={disabled}
       >

@@ -6,6 +6,7 @@ import { TypeSelectPage } from "../pages/type/TypeSelectPage"
 import { StartPage } from "../pages/done/StartPage"
 import { MainPage } from "../pages/main/MainPage"
 import { MyPage } from "../pages/profile/MyPage"
+import { ProfileEditPage } from "../pages/edit/ProfileEditPage"
 
 export const router = createBrowserRouter([
   {
@@ -35,6 +36,14 @@ export const router = createBrowserRouter([
       {
         path: "/circle-me/profile",
         element: <MyPage />,
+      },
+      {
+        path: "/circle-me/profile/edit",
+        element: <ProfileEditPage />,
+      },
+      {
+        path: "/circle-me/profile/edit/types",
+        element: <TypeSelectPage />,
       },
     ],
   },

@@ -1,10 +1,11 @@
 import { useState } from "react"
+import { useNavigate, useLocation } from "react-router-dom"
 import { TypeSelectItem } from "../../components/TypeSelectItem"
 import { ActionButtons } from "../../components/ActionButtons"
-import { useNavigate } from "react-router-dom"
 
 export const TypeSelectPage = () => {
   const navigate = useNavigate()
+  const location = useLocation()
   const [selectedItem, setSelectedItem] = useState<string | null>(null)
 
   const isSelected = (item: string): boolean => item === selectedItem
@@ -18,14 +19,6 @@ export const TypeSelectPage = () => {
       <ul className="flex flex-col items-center gap-[20px] mt-[47px]">
         <li>
           <TypeSelectItem
-            desc={
-              <>
-                물리적, 사회적 장벽으로 인해
-                <br />
-                일상생활과 사회 참여에 어려움을 겪어요
-              </>
-            }
-            eng={"Disabled person"}
             onClick={() => {
               setSelectedItem("장애인")
             }}
@@ -36,14 +29,6 @@ export const TypeSelectPage = () => {
         </li>
         <li>
           <TypeSelectItem
-            desc={
-              <>
-                신체적 변화와 건강상의 위험으로
-                <br />
-                인해 이동과 생활에 불편함을 겪어요.
-              </>
-            }
-            eng={"Pregnant woman"}
             onClick={() => {
               setSelectedItem("임산부")
             }}
@@ -54,14 +39,6 @@ export const TypeSelectPage = () => {
         </li>
         <li>
           <TypeSelectItem
-            desc={
-              <>
-                체력 저화와 건강 문제로
-                <br />
-                인해 일상활동에 제약이 있어요.
-              </>
-            }
-            eng={"Elderly person"}
             onClick={() => {
               setSelectedItem("노약자")
             }}
@@ -72,14 +49,6 @@ export const TypeSelectPage = () => {
         </li>
         <li>
           <TypeSelectItem
-            desc={
-              <>
-                신체적, 정신적 발달 단계에
-                <br />
-                있어 보호와 지도가 필요해요.
-              </>
-            }
-            eng={"Child"}
             onClick={() => {
               setSelectedItem("어린이")
             }}
@@ -91,7 +60,13 @@ export const TypeSelectPage = () => {
       </ul>
       <div className="text-center mt-[119px]">
         <ActionButtons
-          onClick={() => navigate("/done")}
+          onClick={() => {
+            if (location.pathname === "/types") {
+              navigate("/done")
+            } else {
+              navigate("/circle-me/profile/edit")
+            }
+          }}
           disabled={selectedItem === null}
         >
           완료

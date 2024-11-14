@@ -11,7 +11,7 @@ export const Footer = () => {
 
   if (location.pathname === "/circle-me") {
     return (
-      <div className="w-[393px] h-[61px]">
+      <div className="w-[393px] h-[61px] m-auto">
         <ul className="flex h-full justify-center items-center gap-[53.43px]">
           <li>
             <GrLocation className="w-[24px] h-[30px] text-[#FFD501] font-bold pointer-curso" />
