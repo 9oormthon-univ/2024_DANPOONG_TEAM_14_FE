@@ -162,5 +162,34 @@ export const Header = () => {
     )
   }
 
+  if (location.pathname.includes("/surroundings")) {
+    return (
+      <div className="flex flex-col justify-center items-center">
+        <div className="mb-[26px] mt-[29px]">
+          <span className="text-[14px] text-[#B3B3B3] font-bold">
+            {location.pathname.includes("type") ? "유형 탐색" : "주변 탐색"}
+          </span>
+        </div>
+        {location.pathname.includes("/type") ? null : (
+          <div className="w-[340px] h-[55px] relative flex mb-[15px]">
+            <div className="absolute top-[50%] left-[15px] transform -translate-y-1/2 flex justify-center items-center">
+              <IoIosArrowBack className="text-[#989898] text-[20px]" />
+            </div>
+            <div className="w-full h-full">
+              <input
+                type="text"
+                className="border-[#CDCDCD] border-solid border-[1.5px] w-full h-full pl-[38px] placeholder-[#000000] placeholder-bold rounded-[10px] text-[14px]"
+                placeholder="동네를 입력하세요"
+              />
+            </div>
+            <div className="absolute top-[50%] right-[19px] transform -translate-y-1/2">
+              <span className="text-[#CDCDCD]">X</span>
+            </div>
+          </div>
+        )}
+      </div>
+    )
+  }
+
   return null
 }

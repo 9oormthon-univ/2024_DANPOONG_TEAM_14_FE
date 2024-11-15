@@ -9,7 +9,10 @@ export const Footer = () => {
   const location = useLocation()
   const navigate = useNavigate()
 
-  if (location.pathname === "/circle-me") {
+  if (
+    location.pathname === "/circle-me" ||
+    location.pathname.includes("/surroundings")
+  ) {
     return (
       <div className="w-[393px] h-[61px] m-auto">
         <ul className="flex h-full justify-center items-center gap-[53.43px]">
@@ -17,7 +20,12 @@ export const Footer = () => {
             <GrLocation className="w-[24px] h-[30px] text-[#FFD501] font-bold pointer-curso" />
           </li>
           <li>
-            <GoHome className="w-[28.57px] h-[28.57px] text-[#FFD501] font-bold pointer-curso" />
+            <GoHome
+              className="w-[28.57px] h-[28.57px] text-[#FFD501] font-bold pointer-curso"
+              onClick={() => {
+                navigate("/circle-me/explore/surroundings")
+              }}
+            />
           </li>
           <li>
             <LuUser

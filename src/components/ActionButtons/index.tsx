@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom"
 export const ActionButtons = ({
   children,
   onClick,
-  disabled,
+  disabled = false,
 }: {
   children: React.ReactNode
   onClick: () => void
@@ -45,6 +45,36 @@ export const ActionButtons = ({
         disabled={disabled}
       >
         {children}
+      </button>
+    )
+  }
+
+  if (children === "주변 탐색하기" || children === "이동약자 탐색하기") {
+    return (
+      <button
+        className={`w-[312px] h-[110px] ${
+          children === "주변 탐색하기" ? "bg-[#FFD332]" : "bg-[#3284FF]"
+        } rounded-[10px] cursor-pointer`}
+        onClick={onClick}
+        disabled={disabled}
+      >
+        <span className="text-[18px] font-bold text-[#ffffff]">{children}</span>
+      </button>
+    )
+  }
+
+  if (location.pathname.includes("/type")) {
+    return (
+      <button className="w-[162px] h-[175px] bg-[#FFD332] rounded-[10px]">
+        <span className="text-[18px] text-[#ffffff] font-bold">{children}</span>
+      </button>
+    )
+  }
+
+  if (location.pathname.includes("/theme")) {
+    return (
+      <button className="w-[312px] h-[110px] bg-[#CDCDCD] rounded-[10px]">
+        <span className="text-[18px] text-[#ffffff] font-bold">{children}</span>
       </button>
     )
   }

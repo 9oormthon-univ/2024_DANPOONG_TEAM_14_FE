@@ -7,6 +7,9 @@ import { StartPage } from "../pages/done/StartPage"
 import { MainPage } from "../pages/main/MainPage"
 import { MyPage } from "../pages/profile/MyPage"
 import { ProfileEditPage } from "../pages/edit/ProfileEditPage"
+import { ExploreSurroundings } from "../pages/explore/ExploreSurroundings"
+import { ExploreType } from "../pages/exploreType/ExploreType"
+import { ExploreTheme } from "../pages/exploreTheme/ExploreTheme"
 
 export const router = createBrowserRouter([
   {
@@ -44,6 +47,18 @@ export const router = createBrowserRouter([
       {
         path: "/circle-me/profile/edit/types",
         element: <TypeSelectPage />,
+      },
+      {
+        path: "/circle-me/explore/surroundings",
+        element: <ExploreSurroundings />,
+      },
+      {
+        path: "/circle-me/explore/surroundings/theme",
+        element: <ExploreTheme />,
+      },
+      {
+        path: "/circle-me/explore/surroundings/type",
+        element: <ExploreType />,
       },
     ],
   },

@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import { ActionButtons } from "../../components/ActionButtons"
+import { MyCollection } from "../../components/MyCollection"
 
 export const MyPage = () => {
   const navigate = useNavigate()
@@ -34,7 +35,7 @@ export const MyPage = () => {
             </li>
           </ul>
         </div>
-        <div className="mt-[15px] text-center">
+        <div className="mt-[15px] mb-[32px] text-center">
           <ActionButtons
             onClick={() => {
               navigate("/login")
@@ -43,6 +44,14 @@ export const MyPage = () => {
           >
             로그아웃
           </ActionButtons>
+        </div>
+        <div className="flex flex-col items-center">
+          <div className="mb-[41px]">
+            <MyCollection collection={"리뷰"} />
+          </div>
+          <div>
+            <MyCollection collection={"북마크"} />
+          </div>
         </div>
       </div>
     </div>
