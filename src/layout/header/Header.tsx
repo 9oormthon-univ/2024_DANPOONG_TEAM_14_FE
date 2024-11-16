@@ -16,7 +16,8 @@ export const Header = () => {
   if (
     location.pathname === "/accept" ||
     location.pathname.includes("/types") ||
-    location.pathname.includes("/category")
+    location.pathname.includes("/category") ||
+    location.pathname === "/circle-me/bookmark"
   ) {
     return (
       <div className="w-[393px] h-[150px] m-auto">
@@ -48,6 +49,13 @@ export const Header = () => {
             <div>
               <span className="text-[14px] text-[#B3B3B3] font-bold">
                 {title}
+              </span>
+            </div>
+          )}
+          {location.pathname === "/circle-me/bookmark" && (
+            <div>
+              <span className="text-[14px] text-[#B3B3B3] font-bold">
+                내 북마크 장소
               </span>
             </div>
           )}

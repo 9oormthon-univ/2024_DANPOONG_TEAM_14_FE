@@ -11,7 +11,11 @@ export const ActionButtons = ({
 }) => {
   const location = useLocation()
 
-  if (children === "다음" || children === "완료") {
+  if (
+    children === "다음" ||
+    children === "완료" ||
+    children === "선택 삭제하기"
+  ) {
     return (
       <button
         className={`w-[320px] h-[55px] ${

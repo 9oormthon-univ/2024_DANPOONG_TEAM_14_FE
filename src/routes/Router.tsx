@@ -11,6 +11,7 @@ import { ExploreSurroundings } from "../pages/explore/ExploreSurroundings"
 import { ExploreType } from "../pages/exploreType/ExploreType"
 import { ExploreTheme } from "../pages/exploreTheme/ExploreTheme"
 import { CategoryPage } from "../pages/category/CategoryPage"
+import { BookmarkPage } from "../pages/bookmark/BookmarkPage"
 
 export const router = createBrowserRouter([
   {
@@ -64,6 +65,10 @@ export const router = createBrowserRouter([
       {
         path: "/circle-me/category/:theme",
         element: <CategoryPage />,
+      },
+      {
+        path: "/circle-me/bookmark",
+        element: <BookmarkPage />,
       },
     ],
   },

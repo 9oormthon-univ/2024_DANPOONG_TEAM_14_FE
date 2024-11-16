@@ -12,7 +12,8 @@ export const Layout = () => {
         <div
           className={`fixed top-0 left-0 z-10 w-full ${
             location.pathname.includes("/types") ||
-            location.pathname.includes("/category")
+            location.pathname.includes("/category") ||
+            location.pathname.includes("/bookmark")
               ? ""
               : "bg-[#ffffff]"
           }`}
