@@ -65,7 +65,10 @@ export const ActionButtons = ({
 
   if (location.pathname.includes("/type")) {
     return (
-      <button className="w-[162px] h-[175px] bg-[#FFD332] rounded-[10px]">
+      <button
+        className="w-[162px] h-[175px] bg-[#FFD332] rounded-[10px]"
+        onClick={onClick}
+      >
         <span className="text-[18px] text-[#ffffff] font-bold">{children}</span>
       </button>
     )
@@ -73,7 +76,11 @@ export const ActionButtons = ({
 
   if (location.pathname.includes("/theme")) {
     return (
-      <button className="w-[312px] h-[110px] bg-[#CDCDCD] rounded-[10px]">
+      <button
+        className="w-[312px] h-[110px] bg-[#CDCDCD] rounded-[10px] hover:bg-[#FFD332]"
+        onClick={onClick}
+        disabled={disabled}
+      >
         <span className="text-[18px] text-[#ffffff] font-bold">{children}</span>
       </button>
     )

@@ -6,12 +6,18 @@ import { FaBars } from "react-icons/fa6"
 import { CiSettings } from "react-icons/ci"
 
 import { CategoryItem } from "../../components/CategoryItem"
+import { useStoreType } from "../../hooks/useStoreType"
 
 export const Header = () => {
   const location = useLocation()
   const navigate = useNavigate()
+  const title = useStoreType()
 
-  if (location.pathname === "/accept" || location.pathname.includes("/types")) {
+  if (
+    location.pathname === "/accept" ||
+    location.pathname.includes("/types") ||
+    location.pathname.includes("/category")
+  ) {
     return (
       <div className="w-[393px] h-[150px] m-auto">
         <div className="flex bg-[#FFFFFF] relative justify-center items-center pt-[29px]">
@@ -29,12 +35,19 @@ export const Header = () => {
               }
             }}
           >
-            <IoIosArrowBack className="text-[#989898] text-[26px]" />
+            <IoIosArrowBack className="text-[#989898] text-[20px]" />
           </div>
           {location.pathname === "/accept" && (
             <div>
               <span className="text-[14px] text-[#B3B3B3] font-bold">
                 약관 동의
+              </span>
+            </div>
+          )}
+          {location.pathname.includes("/category") && (
+            <div>
+              <span className="text-[14px] text-[#B3B3B3] font-bold">
+                {title}
               </span>
             </div>
           )}
@@ -84,7 +97,7 @@ export const Header = () => {
                 <select
                   name="category"
                   id="category"
-                  className="bg-[#FFD332] w-full h-full rounded-[8px] text-[10px] text-[#ffffff]"
+                  className="bg-[#FFD332] w-full h-full rounded-[8px] text-[10px] text-[#ffffff] text-center"
                 >
                   <option value="distance">거리순</option>
                   <option value="correct">정확도순</option>

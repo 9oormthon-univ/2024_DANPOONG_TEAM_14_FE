@@ -11,7 +11,10 @@ export const Layout = () => {
       <div className="text-black_01 w-[390px]">
         <div
           className={`fixed top-0 left-0 z-10 w-full ${
-            location.pathname.includes("/types") ? "" : "bg-[#ffffff]"
+            location.pathname.includes("/types") ||
+            location.pathname.includes("/category")
+              ? ""
+              : "bg-[#ffffff]"
           }`}
         >
           <Header />
