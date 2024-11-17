@@ -1,5 +1,4 @@
 import { BookmarkItem } from "../../components/BookmarkItem"
-import { ActionButtons } from "../../components/ActionButtons"
 
 export const BookmarkPage = () => {
   return (

@@ -1,7 +1,13 @@
 import { IoIosArrowForward } from "react-icons/io"
 import { LocationItem } from "../LocationItem"
 
-export const MyCollection = ({ collection }: { collection: string }) => {
+export const MyCollection = ({
+  collection,
+  onClick,
+}: {
+  collection: string
+  onClick: () => void
+}) => {
   let subTitle: string = ""
 
   const title = ({ collection }: { collection: string }): string => {
@@ -24,7 +30,10 @@ export const MyCollection = ({ collection }: { collection: string }) => {
         </span>
       </div>
       <div className="w-[329px] h-[234px] border-solid border-[2px] border-[#E6E6E6] rounded-[20px]">
-        <div className="flex items-center mt-[21px] ml-[20px] mr-[20px] mb-[26px] justify-between">
+        <div
+          className="flex items-center mt-[21px] ml-[20px] mr-[20px] mb-[26px] justify-between"
+          onClick={onClick}
+        >
           <div>
             <span className="text-[14px] font-bold leading-[20px]">
               {subTitle}

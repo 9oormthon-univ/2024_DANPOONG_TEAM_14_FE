@@ -7,11 +7,13 @@ import { CiSettings } from "react-icons/ci"
 
 import { CategoryItem } from "../../components/CategoryItem"
 import { useStoreType } from "../../hooks/useStoreType"
+import { useGetHeaderTitle } from "../../hooks/useGetHeaderTitle"
 
 export const Header = () => {
   const location = useLocation()
   const navigate = useNavigate()
-  const title = useStoreType()
+  const storeType = useStoreType()
+  const headerTitle = useGetHeaderTitle()
 
   if (
     location.pathname === "/accept" ||
@@ -48,7 +50,7 @@ export const Header = () => {
           {location.pathname.includes("/category") && (
             <div>
               <span className="text-[14px] text-[#B3B3B3] font-bold">
-                {title}
+                {storeType}
               </span>
             </div>
           )}
@@ -127,9 +129,12 @@ export const Header = () => {
     )
   }
 
-  if (location.pathname.includes("/circle-me/profile")) {
+  if (
+    location.pathname.includes("/circle-me/profile") ||
+    location.pathname.includes("/review")
+  ) {
     return (
-      <div className="w-[340px] flex space-x-[111px] justify-center mt-[29px] m-auto">
+      <div className="w-[340px] flex gap-[111px] justify-center mt-[29px] m-auto">
         <div className="flex flex-col gap-[12px] items-center">
           <div>
             <FaBars className="text-[#989898] w-[18px]" />
@@ -149,9 +154,7 @@ export const Header = () => {
         </div>
         <div>
           <span className="text-[#B3B3B3] text-[14px] font-bold">
-            {location.pathname === "/circle-me/profile/edit"
-              ? "프로필 수정"
-              : "마이 페이지"}
+            {headerTitle}
           </span>
         </div>
         {location.pathname === "/circle-me/profile/edit" ? (
@@ -164,6 +167,8 @@ export const Header = () => {
               저장
             </span>
           </div>
+        ) : location.pathname.includes("/review") ? (
+          <div></div>
         ) : (
           <div
             className="flex flex-col justify-center"

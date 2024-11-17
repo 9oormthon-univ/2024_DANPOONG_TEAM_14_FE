@@ -12,6 +12,7 @@ import { ExploreType } from "../pages/exploreType/ExploreType"
 import { ExploreTheme } from "../pages/exploreTheme/ExploreTheme"
 import { CategoryPage } from "../pages/category/CategoryPage"
 import { BookmarkPage } from "../pages/bookmark/BookmarkPage"
+import { MyReviewPage } from "../pages/myReview/MyReviewPage"
 
 export const router = createBrowserRouter([
   {
@@ -69,6 +70,10 @@ export const router = createBrowserRouter([
       {
         path: "/circle-me/bookmark",
         element: <BookmarkPage />,
+      },
+      {
+        path: "/circle-me/review",
+        element: <MyReviewPage />,
       },
     ],
   },

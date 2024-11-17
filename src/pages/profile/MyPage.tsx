@@ -47,10 +47,20 @@ export const MyPage = () => {
         </div>
         <div className="flex flex-col items-center">
           <div className="mb-[41px]">
-            <MyCollection collection={"리뷰"} />
+            <MyCollection
+              collection={"리뷰"}
+              onClick={() => {
+                navigate("/circle-me/review")
+              }}
+            />
           </div>
           <div>
-            <MyCollection collection={"북마크"} />
+            <MyCollection
+              collection={"북마크"}
+              onClick={() => {
+                navigate("/circle-me/bookmark")
+              }}
+            />
           </div>
         </div>
       </div>
