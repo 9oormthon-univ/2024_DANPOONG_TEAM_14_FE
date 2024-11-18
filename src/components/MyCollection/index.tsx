@@ -24,6 +24,7 @@ export const MyCollection = ({
 
   return (
     <div>
+<<<<<<< HEAD
       <div className="mb-[15px]">
         <span className="text-[16px] font-bold leading-[20px]">
           {title({ collection })}
@@ -38,13 +39,32 @@ export const MyCollection = ({
             <span className="text-[14px] font-bold leading-[20px]">
               {subTitle}
             </span>
+=======
+      <div className="mb-4">
+        <span className="text-base  font-bold leading-5">
+          {title({ collection })}
+        </span>
+      </div>
+      <div className="w-[20.563rem] h-[14.625rem] border-solid border-2 border-cir_black_03 rounded-[1.25rem]">
+        <div
+          className="flex items-center mt-5 ml-5 mr-5 mb-6 justify-between"
+          onClick={onClick}
+        >
+          <div>
+            <span className="text-sm font-bold leading-5">{subTitle}</span>
+>>>>>>> 112c5cc509eb5beb158bf564efa05fdf62554402
           </div>
           <div>
             <IoIosArrowForward />
           </div>
         </div>
+<<<<<<< HEAD
         <div className="ml-[20px]">
           <ul className="flex items-center gap-[8.77px] overflow-x-scroll">
+=======
+        <div className="ml-5">
+          <ul className="flex items-center gap-[0.548rem] overflow-x-scroll">
+>>>>>>> 112c5cc509eb5beb158bf564efa05fdf62554402
             <li>
               <LocationItem
                 usage={collection}

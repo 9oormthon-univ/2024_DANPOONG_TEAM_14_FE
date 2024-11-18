@@ -65,6 +65,7 @@ export const TypeSelectItem = ({
 
   return (
     <div
+<<<<<<< HEAD
       className={`w-[300px] h-[90px] rounded-[10px] border-2 ${
         selected ? "bg-[#FFD332]" : "bg-[#CDCDCD]"
       } border-solid hover:border-[#FFD332] cursor-pointer`}
@@ -81,6 +82,26 @@ export const TypeSelectItem = ({
           <span className="text-[6px] ml-[4px]">{changeEng({ children })}</span>
         </span>
         <span className="text-[10px] font-medium">
+=======
+      className={`w-[18.75rem] h-[5.625rem] rounded-lg border-2 ${
+        selected ? "bg-cir_yellow_01" : "bg-cir_black_03"
+      } border-solid hover:border-cir_yellow_01  `}
+      onClick={onClick}
+    >
+      <div
+        className={`text-cir_white rounded-lg ${
+          selected ? "bg-cir_yellow_01" : "bg-cir_black_03"
+        } flex flex-col h-full pt-5 pl-8 hover:border-cir_yellow_01  `}
+        onClick={onClick}
+      >
+        <span className="text-sm font-bold mb-1">
+          {children}
+          <span className="text-[0.375rem] ml-1">
+            {changeEng({ children })}
+          </span>
+        </span>
+        <span className="text-[0.625rem] font-medium">
+>>>>>>> 112c5cc509eb5beb158bf564efa05fdf62554402
           {makeDesc({ children })}
         </span>
       </div>
