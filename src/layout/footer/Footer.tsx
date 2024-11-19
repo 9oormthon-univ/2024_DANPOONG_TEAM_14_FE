@@ -5,8 +5,6 @@ import { GrLocation } from "react-icons/gr"
 import { GoHome } from "react-icons/go"
 import { LuUser } from "react-icons/lu"
 
-import { ActionButtons } from "../../components/ActionButtons"
-
 export const Footer = () => {
   const location = useLocation()
   const navigate = useNavigate()
@@ -17,7 +15,7 @@ export const Footer = () => {
     location.pathname.includes("/category")
   ) {
     return (
-      <div className="w-[24.563rem h-[3.75rem] m-auto">
+      <div className="w-[24.563rem] h-[3.75rem] m-auto">
         <ul className="flex h-full justify-center items-center gap-[3.339rem]">
           <li
             onClick={() => {
@@ -41,14 +39,6 @@ export const Footer = () => {
             <LuUser className="w-6 h-7 text-dong_primary font-bold" />
           </li>
         </ul>
-      </div>
-    )
-  } else if (location.pathname.includes("/bookmark")) {
-    return (
-      <div className="w-[24.563rem] h-[3.75rem] m-auto text-center mb-14">
-        <ActionButtons onClick={() => {}} disabled={false}>
-          선택 삭제하기
-        </ActionButtons>
       </div>
     )
   }

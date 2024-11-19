@@ -1,3 +1,5 @@
+// 유형선택 할 때 사용하는 버튼
+
 export const TypeSelectItem = ({
   children,
   selected,

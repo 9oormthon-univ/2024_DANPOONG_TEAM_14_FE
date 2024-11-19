@@ -7,7 +7,7 @@ export const ExploreTheme = () => {
 
   return (
     <div className="pt-44">
-      <ul className="flex flex-col pt-[0.625rem] items-center">
+      <ul className="flex flex-col pt-[0.625rem] items-center gap-[0.625rem]">
         <li>
           <ActionButtons
             onClick={() => {

@@ -1,3 +1,5 @@
+// 테마졀 카테고리 페이지에서 사용되는 가게 정보 아이템 컴포넌트
+
 export const StoreInfoItem = ({
   store,
   address,

@@ -3,9 +3,11 @@ import { useState } from "react"
 export const BookmarkItem = ({
   name,
   type,
+  onClick,
 }: {
   name: string
   type: string
+  onClick: () => void
 }) => {
   const [isChecked, setIsChecked] = useState(false)
 

@@ -39,7 +39,7 @@ export const Header = () => {
   ) {
     return (
       <div className="w-[24.563rem] h-36 m-auto">
-        <div className="flex bg-dong_white relative justify-center items-center pt-7">
+        <div className="flex bg-cir_white relative justify-center items-center pt-7">
           <div
             className="absolute left-9 top-[3.75rem] "
             onClick={() => {
@@ -95,6 +95,7 @@ export const Header = () => {
       </div>
     )
   }
+
   if (location.pathname === "/circle-me") {
     return (
       <div className="w-[24.563rem] h-36 flex flex-col items-center m-auto">
