@@ -38,7 +38,7 @@ export const Header = () => {
     location.pathname === "/circle-me/bookmark"
   ) {
     return (
-      <div className="w-[24.563rem] h-36 m-auto">
+      <div className="w-[24.563rem] h-auto m-auto">
         <div className="flex bg-cir_white relative justify-center items-center pt-7">
           <div
             className="absolute left-9 top-[3.75rem] "
@@ -51,6 +51,8 @@ export const Header = () => {
                 location.pathname === "/circle-me/profile/edit/types"
               ) {
                 navigate("/circle-me/profile/edit")
+              } else if (location.pathname === "/circle-me/bookmark") {
+                navigate("/circle-me")
               }
             }}
           >
@@ -217,7 +219,12 @@ export const Header = () => {
         </div>
         {location.pathname.includes("/type") ? null : (
           <div className="w-[21.25rem] h-14 relative flex mb-4">
-            <div className="absolute top-1/2  left-4 transform -translate-y-1/2 flex justify-center items-center">
+            <div
+              className="absolute top-1/2  left-4 transform -translate-y-1/2 flex justify-center items-center"
+              onClick={() => {
+                navigate("/circle-me")
+              }}
+            >
               <IoIosArrowBack className="text-dong_deep_gray text-xl" />
             </div>
             <div className="w-full h-full">

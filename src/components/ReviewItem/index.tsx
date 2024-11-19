@@ -3,21 +3,23 @@ export const ReviewItem = ({
   state,
   review,
   isImage,
+  onClick,
 }: {
   store: string
   state: string
   review: string
   isImage: boolean
+  onClick: (e: React.MouseEvent<HTMLInputElement>) => void
 }) => {
   return (
     <div className="w-[20.563rem] h-auto border-dong_light_gray border-solid border-2 rounded-[1.25rem] relative">
       <div className="absolute flex gap-1 top-3 right-3">
-        <div>
+        <div onClick={onClick}>
           <span className="text-[0.625rem] text-dong_light_gray font-bold underline">
             수정
           </span>
         </div>
-        <div>
+        <div onClick={onClick}>
           <span className="text-[0.625rem] text-dong_light_gray font-bold underline">
             삭제
           </span>
@@ -36,8 +38,8 @@ export const ReviewItem = ({
             </div>
           </div>
         </div>
-        <div className="w-w-[12.5rem] h-auto mb-6">
-          <span className="text-[0.625rem] font-medium inline-block leading-auto">
+        <div className="w-[12.5rem] h-auto mb-6">
+          <span className="text-[0.625rem] font-medium inline-block leading-none">
             {review}
           </span>
         </div>

@@ -2,6 +2,7 @@ import { useState } from "react"
 
 import { BookmarkItem } from "../../components/BookmarkItem"
 import { ActionButtons } from "../../components/ActionButtons"
+import { CheckPopup } from "../../components/CheckPopup"
 
 export const BookmarkPage = () => {
   const [bookmarkStore, setBookmarkStore] = useState([
@@ -23,13 +24,16 @@ export const BookmarkPage = () => {
     },
   ])
 
-  const handleDeleteBookmark = (index: number) => {
-    setBookmarkStore((prev) => prev.filter((_, i) => i !== index))
-  }
+  const [showPopup, setShowPopup] = useState(false)
 
-  const handleDeleteAll = () => {
-    setBookmarkStore([])
-    console.log("all delete")
+  const [deletedIndex, setDeletedIndex] = useState<number | null>(null)
+
+  const handleDeleteBookmark = (index: number | null) => {
+    if (index === -1) {
+      setBookmarkStore([])
+    } else {
+      setBookmarkStore((prev) => prev.filter((_, i) => i !== index))
+    }
   }
 
   return (
@@ -38,7 +42,12 @@ export const BookmarkPage = () => {
         <div>
           <span className="text-lg font-bold leading-5">내 북마크 장소</span>
         </div>
-        <div>
+        <div
+          onClick={() => {
+            setDeletedIndex(-1)
+            setShowPopup(true)
+          }}
+        >
           <span className="text-xs font-bold text-dong_light_gray underline">
             전체 삭제
           </span>
@@ -51,7 +60,10 @@ export const BookmarkPage = () => {
               <BookmarkItem
                 name={bookmark.name}
                 type={bookmark.type}
-                onClick={() => handleDeleteBookmark(index)}
+                onClick={() => {
+                  setDeletedIndex(index)
+                  setShowPopup(true)
+                }}
               />
             </li>
           ))}
@@ -62,6 +74,22 @@ export const BookmarkPage = () => {
           선택 삭제하기
         </ActionButtons>
       </div>
+      {showPopup && (
+        <div className="w-full h-screen fixed flex justify-center items-center">
+          <CheckPopup
+            usage="delete"
+            onClick={(e) => {
+              if (e.currentTarget.textContent === "예") {
+                handleDeleteBookmark(deletedIndex)
+                setShowPopup(false)
+              } else if (e.currentTarget.textContent === "아니요") {
+                setDeletedIndex(null)
+                setShowPopup(false)
+              }
+            }}
+          />
+        </div>
+      )}
     </div>
   )
 }

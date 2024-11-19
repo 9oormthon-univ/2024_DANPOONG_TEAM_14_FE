@@ -33,7 +33,7 @@ export const BookmarkItem = ({
             </span>
           </div>
         </div>
-        <div className="absolute top-3 right-3">
+        <div className="absolute top-3 right-3" onClick={onClick}>
           <span className="text-dong_light_gray text-[0.625rem] font-bold underline">
             삭제
           </span>
