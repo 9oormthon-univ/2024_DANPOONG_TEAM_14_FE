@@ -96,7 +96,7 @@ export const ProfileEditPage = () => {
       <div className="mb-4">
         <ActionButtons
           onClick={() => {
-            navigate("/login")
+            navigate("/")
           }}
           disabled={false}
         >
@@ -106,7 +106,7 @@ export const ProfileEditPage = () => {
       <div>
         <ActionButtons
           onClick={() => {
-            navigate("/login")
+            navigate("/")
           }}
           disabled={false}
         >

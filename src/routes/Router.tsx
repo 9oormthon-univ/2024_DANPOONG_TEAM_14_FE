@@ -21,7 +21,7 @@ export const routes = [
     element: <Layout />,
     children: [
       { path: "*", element: <Page404 /> },
-      { path: "login", element: <LoginPage /> },
+      { path: "/", element: <LoginPage /> },
       { path: "accept", element: <AcceptPage /> },
       { path: "types", element: <TypeSelectPage /> },
       { path: "done", element: <StartPage /> },

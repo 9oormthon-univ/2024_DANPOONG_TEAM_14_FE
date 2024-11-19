@@ -1,7 +1,11 @@
+import { useNavigate } from "react-router-dom"
+
 import { ImBubble } from "react-icons/im"
 import logo from "../../assets/images/logo.svg"
 
 export const LoginPage = () => {
+  const navigate = useNavigate()
+
   return (
     <div className="flex flex-col items-center">
       <div className="mt-44 mb-3">
@@ -18,7 +22,11 @@ export const LoginPage = () => {
         <div className="absolute left-[4.5rem] top-4 w-5 h-5">
           <ImBubble />
         </div>
-        <div>
+        <div
+          onClick={() => {
+            navigate("/accept")
+          }}
+        >
           <span className="text-sm text-dong_white ml-3 font-bold">
             카카오톡으로 로그인
           </span>

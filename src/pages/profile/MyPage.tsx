@@ -36,7 +36,7 @@ export const MyPage = () => {
         <div className="mt-4 mb-8 text-center">
           <ActionButtons
             onClick={() => {
-              navigate("/login")
+              navigate("/")
             }}
             disabled={false}
           >
