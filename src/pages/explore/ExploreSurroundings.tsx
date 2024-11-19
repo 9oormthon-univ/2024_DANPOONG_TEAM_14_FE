@@ -6,11 +6,7 @@ export const ExploreSurroundings = () => {
   const navigate = useNavigate()
 
   return (
-<<<<<<< HEAD
-    <div className="flex flex-col pt-[301px] gap-[30px] items-center">
-=======
     <div className="flex flex-col pt-[18.75rem] gap-[1.875rem] items-center">
->>>>>>> 112c5cc509eb5beb158bf564efa05fdf62554402
       <div>
         <ActionButtons
           onClick={() => {

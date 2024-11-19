@@ -50,9 +50,5 @@ export const KakaoMap = () => {
     }
   }, [location])
 
-<<<<<<< HEAD
-  return <div id="map" className="w-[393px] h-[633px]" />
-=======
   return <div id="map" className="w-[24.563rem] h-[39.563rem]" />
->>>>>>> 112c5cc509eb5beb158bf564efa05fdf62554402
 }

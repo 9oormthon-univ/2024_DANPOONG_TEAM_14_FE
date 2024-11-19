@@ -6,13 +6,8 @@ export const ExploreTheme = () => {
   const navigate = useNavigate()
 
   return (
-<<<<<<< HEAD
-    <div className="pt-[171px]">
-      <ul className="flex flex-col gap-[10px] items-center">
-=======
     <div className="pt-44">
-      <ul className="flex flex-col pt-[0.625rem] items-center">
->>>>>>> 112c5cc509eb5beb158bf564efa05fdf62554402
+      <ul className="flex flex-col pt-[0.625rem] items-center gap-[0.625rem]">
         <li>
           <ActionButtons
             onClick={() => {

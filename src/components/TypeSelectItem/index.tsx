@@ -1,3 +1,5 @@
+// 유형선택 할 때 사용하는 버튼
+
 export const TypeSelectItem = ({
   children,
   selected,
@@ -65,24 +67,6 @@ export const TypeSelectItem = ({
 
   return (
     <div
-<<<<<<< HEAD
-      className={`w-[300px] h-[90px] rounded-[10px] border-2 ${
-        selected ? "bg-[#FFD332]" : "bg-[#CDCDCD]"
-      } border-solid hover:border-[#FFD332] cursor-pointer`}
-      onClick={onClick}
-    >
-      <div
-        className={`text-[#ffffff] rounded-[10px] ${
-          selected ? "bg-[#FFD332]" : "bg-[#CDCDCD]"
-        } flex flex-col h-full pt-[20px] pl-[31px] hover:border-[#FFD332] cursor-pointer`}
-        onClick={onClick}
-      >
-        <span className="text-[14px] font-bold mb-[4px]">
-          {children}
-          <span className="text-[6px] ml-[4px]">{changeEng({ children })}</span>
-        </span>
-        <span className="text-[10px] font-medium">
-=======
       className={`w-[18.75rem] h-[5.625rem] rounded-lg border-2 ${
         selected ? "bg-cir_yellow_01" : "bg-cir_black_03"
       } border-solid hover:border-cir_yellow_01  `}
@@ -101,7 +85,6 @@ export const TypeSelectItem = ({
           </span>
         </span>
         <span className="text-[0.625rem] font-medium">
->>>>>>> 112c5cc509eb5beb158bf564efa05fdf62554402
           {makeDesc({ children })}
         </span>
       </div>

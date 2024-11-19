@@ -1,61 +1,66 @@
+import { useState } from "react"
+
 import { BookmarkItem } from "../../components/BookmarkItem"
+import { ActionButtons } from "../../components/ActionButtons"
 
 export const BookmarkPage = () => {
+  const [bookmarkStore, setBookmarkStore] = useState([
+    {
+      name: "스타벅스 본점",
+      type: "카페",
+    },
+    {
+      name: "스타벅스1",
+      type: "카페",
+    },
+    {
+      name: "스타벅스2",
+      type: "카페",
+    },
+    {
+      name: "스타벅스3",
+      type: "카페",
+    },
+  ])
+
+  const handleDeleteBookmark = (index: number) => {
+    setBookmarkStore((prev) => prev.filter((_, i) => i !== index))
+  }
+
+  const handleDeleteAll = () => {
+    setBookmarkStore([])
+    console.log("all delete")
+  }
+
   return (
-    <div className="flex flex-col items-center">
-<<<<<<< HEAD
-      <div className="pt-[118px] flex items-center gap-[163px] mb-[22px]">
-        <div>
-          <span className="text-[18px] font-bold leading-[20px]">
-            내 북마크 장소
-          </span>
-        </div>
-        <div>
-          <span className="text-[12px] font-bold text-[#CDCDCD] underline">
-=======
+    <div className="flex flex-col items-center relative">
       <div className="pt-[7.375rem] flex items-center gap-40 mb-5">
         <div>
           <span className="text-lg font-bold leading-5">내 북마크 장소</span>
         </div>
-        <div>
+        <div onClick={handleDeleteAll}>
           <span className="text-xs font-bold text-cir_black_03 underline">
->>>>>>> 112c5cc509eb5beb158bf564efa05fdf62554402
             전체 삭제
           </span>
         </div>
       </div>
-<<<<<<< HEAD
-      <div className="mb-[140px]">
-        <ul className="flex flex-col gap-[9px]">
-=======
-      <div className="mb-[8.75rem]">
+      <div className="mb-[10rem]">
         <ul className="flex flex-col gap-2">
->>>>>>> 112c5cc509eb5beb158bf564efa05fdf62554402
-          <li>
-            <BookmarkItem name={"스타벅스 본점"} type={"카페"} />
-          </li>
-          <li>
-            <BookmarkItem name={"스타벅스 본점"} type={"카페"} />
-          </li>
-          <li>
-            <BookmarkItem name={"스타벅스 본점"} type={"카페"} />
-          </li>
-          <li>
-            <BookmarkItem name={"스타벅스 본점"} type={"카페"} />
-          </li>
-          <li>
-            <BookmarkItem name={"스타벅스 본점"} type={"카페"} />
-          </li>
-          <li>
-            <BookmarkItem name={"스타벅스 본점"} type={"카페"} />
-          </li>
-          <li>
-            <BookmarkItem name={"스타벅스 본점"} type={"카페"} />
-          </li>
-          <li>
-            <BookmarkItem name={"스타벅스 본점"} type={"카페"} />
-          </li>
+          {bookmarkStore.map((bookmark, index) => (
+            <li key={index}>
+              <BookmarkItem
+                name={bookmark.name}
+                type={bookmark.type}
+                onClick={() => handleDeleteBookmark(index)}
+              />
+            </li>
+          ))}
         </ul>
+      </div>
+      <div className="w-[24.563rem] h-[3.75rem] text-center fixed bottom-[58px]">
+        <ActionButtons onClick={() => {}} disabled={false}>
+          선택 삭제하기
+        </ActionButtons>
       </div>
     </div>
   )

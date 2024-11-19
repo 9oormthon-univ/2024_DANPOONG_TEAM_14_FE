@@ -12,19 +12,11 @@ export const TypeSelectPage = () => {
 
   return (
     <div className="flex flex-col items-center">
-<<<<<<< HEAD
-      <div className="text-[18px] leading-[26px] font-bold flex flex-col justify-center mt-[125px]">
-        <span>사용자님의 유형을 선택해주세요.</span>
-        <span>맞춤 여행 장소를 추천해 드릴게요!</span>
-      </div>
-      <ul className="flex flex-col items-center gap-[20px] mt-[47px]">
-=======
       <div className="text-lg leading-6 font-bold flex flex-col justify-center mt-32">
         <span>사용자님의 유형을 선택해주세요.</span>
         <span>맞춤 여행 장소를 추천해 드릴게요!</span>
       </div>
       <ul className="flex flex-col items-center gap-5 mt-12">
->>>>>>> 112c5cc509eb5beb158bf564efa05fdf62554402
         <li>
           <TypeSelectItem
             onClick={() => {
@@ -66,11 +58,7 @@ export const TypeSelectPage = () => {
           </TypeSelectItem>
         </li>
       </ul>
-<<<<<<< HEAD
-      <div className="text-center mt-[119px]">
-=======
       <div className="text-center mt-[7.5rem]">
->>>>>>> 112c5cc509eb5beb158bf564efa05fdf62554402
         <ActionButtons
           onClick={() => {
             if (location.pathname === "/types") {
