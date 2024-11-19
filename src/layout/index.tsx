@@ -8,14 +8,14 @@ export const Layout = () => {
 
   return (
     <div className="relative">
-      <div className="text-cir_black_01 w-[24.375rem]">
+      <div className="text-dong_black w-[24.375rem] text-sm font-normal">
         <div
           className={`fixed top-0 left-0 z-10 w-full ${
             location.pathname.includes("/types") ||
             location.pathname.includes("/category") ||
             location.pathname.includes("/bookmark")
               ? ""
-              : "bg-cir_white"
+              : "bg-dong_white"
           }`}
         >
           <Header />
@@ -24,7 +24,7 @@ export const Layout = () => {
           <Outlet />
         </div>
         {location.pathname !== "/accept" && location.pathname !== "/types" && (
-          <div className="fixed bottom-0 left-0 bg-cir_white w-full z-10">
+          <div className="fixed bottom-0 left-0 bg-dong_white w-full z-10">
             <Footer />
           </div>
         )}

@@ -24,21 +24,21 @@ export const Footer = () => {
               navigate("/circle-me/bookmark")
             }}
           >
-            <GrLocation className="w-6 h-[1.875rem] text-cir_yellow_01 font-bold" />
+            <GrLocation className="w-6 h-[1.875rem] text-dong_primary font-bold" />
           </li>
           <li
             onClick={() => {
               navigate("/circle-me/explore/surroundings")
             }}
           >
-            <GoHome className="w-7 h-7 text-cir_yellow_01 font-bold " />
+            <GoHome className="w-7 h-7 text-dong_primary font-bold " />
           </li>
           <li
             onClick={() => {
               navigate("/circle-me/profile")
             }}
           >
-            <LuUser className="w-6 h-7 text-cir_yellow_01 font-bold" />
+            <LuUser className="w-6 h-7 text-dong_primary font-bold" />
           </li>
         </ul>
       </div>

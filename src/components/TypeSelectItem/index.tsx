@@ -66,14 +66,14 @@ export const TypeSelectItem = ({
   return (
     <div
       className={`w-[18.75rem] h-[5.625rem] rounded-lg border-2 ${
-        selected ? "bg-cir_yellow_01" : "bg-cir_black_03"
-      } border-solid hover:border-cir_yellow_01  `}
+        selected ? "bg-dong_primary" : "bg-dong_light_gray"
+      } border-solid hover:border-dong_primary  `}
       onClick={onClick}
     >
       <div
-        className={`text-cir_white rounded-lg ${
-          selected ? "bg-cir_yellow_01" : "bg-cir_black_03"
-        } flex flex-col h-full pt-5 pl-8 hover:border-cir_yellow_01  `}
+        className={`text-dong_white rounded-lg ${
+          selected ? "bg-dong_primary" : "bg-dong_light_gray"
+        } flex flex-col h-full pt-5 pl-8 hover:border-dong_primary  `}
         onClick={onClick}
       >
         <span className="text-sm font-bold mb-1">

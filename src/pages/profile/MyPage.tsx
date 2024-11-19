@@ -9,13 +9,13 @@ export const MyPage = () => {
     <div>
       <div className="mt-20">
         <div className="flex items-center mb-5 ml-9">
-          <div className="w-[4.5rem] h-[4.5rem] rounded-[100%] bg-cir_black_03"></div>
+          <div className="w-[4.5rem] h-[4.5rem] rounded-[100%] bg-dong_light_gray"></div>
           <div className="ml-[1.375rem]">
             <div>
               <span className="text-lg font-bold leading-6">사용자 이름</span>
             </div>
             <div>
-              <span className="text-sm text-cir_yellow_01 font-bold">
+              <span className="text-sm text-dong_primary font-bold">
                 장애인
               </span>
             </div>

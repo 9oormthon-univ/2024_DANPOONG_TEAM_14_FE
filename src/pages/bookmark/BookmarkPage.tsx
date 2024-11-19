@@ -8,7 +8,7 @@ export const BookmarkPage = () => {
           <span className="text-lg font-bold leading-5">내 북마크 장소</span>
         </div>
         <div>
-          <span className="text-xs font-bold text-cir_black_03 underline">
+          <span className="text-xs font-bold text-dong_light_gray underline">
             전체 삭제
           </span>
         </div>

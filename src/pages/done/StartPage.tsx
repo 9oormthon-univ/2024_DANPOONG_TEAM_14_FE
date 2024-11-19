@@ -12,7 +12,7 @@ export const StartPage = () => {
       </div>
       <div className="text-4xl font-bold mb-5">
         <span>동그라</span>
-        <span className="text-cir_yellow_01">ME</span>
+        <span className="text-dong_primary">ME</span>
       </div>
       <div className="flex flex-col items-center text-base leading-5 font-medium">
         <span>가입해 주셔서 감사합니다.</span>

@@ -4,14 +4,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        cir_yellow_01: "#FFD332",
-        cir_yellow_02: "#fff3cf",
-        cir_blue_01: "#3284FF",
-        cir_green_01: "#34a853",
-        cir_black_01: "#212121",
-        cir_black_02: "#707579",
-        cir_black_03: "#e2e2e2",
-        cir_white: "#ffffff",
+        dong_primary: "#FFD332",
+        dong_secondary: "#3284FF",
+        dong_white: "#FFFFFF",
+        dong_light_gray: "#F1F1F1",
+        dong_deep_gray: "#CDCDCD",
+        dong_black: "#000000",
+
+        dong_light_yellow: "#fff3cf",
+        dong_green: "#34a853",
       },
       fontFamily: {
         goorm: ["Goorm Sans", "sans-serif"],

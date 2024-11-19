@@ -29,7 +29,7 @@ export const MyCollection = ({
           {title({ collection })}
         </span>
       </div>
-      <div className="w-[20.563rem] h-[14.625rem] border-solid border-2 border-cir_black_03 rounded-[1.25rem]">
+      <div className="w-[20.563rem] h-[14.625rem] border-solid border-2 border-dong_light_gray rounded-[1.25rem]">
         <div
           className="flex items-center mt-5 ml-5 mr-5 mb-6 justify-between"
           onClick={onClick}
