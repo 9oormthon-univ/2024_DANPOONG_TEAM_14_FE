@@ -11,7 +11,7 @@ export const CheckboxInput = ({
     <div className="flex items-center ml-11">
       <input
         type="checkbox"
-        className="w-5  h-5 mr-3 border-[0.094rem] border-cir_black_03 rounded-md"
+        className="w-5  h-5 mr-3 border-[0.094rem] border-dong_light_gray rounded-md"
         onChange={onChange}
         checked={checked}
       />

@@ -6,8 +6,8 @@ export const StoreInfoItem = ({
   address: string
 }) => {
   return (
-    <div className="w-80 h-32 rounded-[1.25rem] border-solid border-2 border-cir_black_03 flex gap-[1.111rem] items-center relative">
-      <div className="w-[6.577rem] h-[6.096rem] bg-cir_black_03 rounded-lg ml-9"></div>
+    <div className="w-80 h-32 rounded-[1.25rem] border-solid border-2 border-dong_light_gray flex gap-[1.111rem] items-center relative">
+      <div className="w-[6.577rem] h-[6.096rem] bg-dong_light_gray rounded-lg ml-9"></div>
       <div>
         <div>
           <span className="text-sm leading-5 font-bold">{store}</span>
@@ -17,7 +17,7 @@ export const StoreInfoItem = ({
         </div>
       </div>
       <div className="absolute top-3 right-3 ">
-        <span className="text-[0.625rem] font-bold text-cir_black_03 underline">
+        <span className="text-[0.625rem] font-bold text-dong_light_gray underline">
           삭제
         </span>
       </div>

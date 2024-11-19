@@ -10,15 +10,15 @@ export const ReviewItem = ({
   isImage: boolean
 }) => {
   return (
-    <div className="w-[20.563rem] h-auto border-cir_black_03 border-solid border-2 rounded-[1.25rem] relative">
+    <div className="w-[20.563rem] h-auto border-dong_light_gray border-solid border-2 rounded-[1.25rem] relative">
       <div className="absolute flex gap-1 top-3 right-3">
         <div>
-          <span className="text-[0.625rem] text-cir_black_03 font-bold underline">
+          <span className="text-[0.625rem] text-dong_light_gray font-bold underline">
             수정
           </span>
         </div>
         <div>
-          <span className="text-[0.625rem] text-cir_black_03 font-bold underline">
+          <span className="text-[0.625rem] text-dong_light_gray font-bold underline">
             삭제
           </span>
         </div>
@@ -28,9 +28,9 @@ export const ReviewItem = ({
           <div>
             <span className="text-sm leading-5 font-bold">{store}</span>
           </div>
-          <div className="w-[4.454rem] h-6 rounded-md bg-cir_yellow_01 text-center">
+          <div className="w-[4.454rem] h-6 rounded-md bg-dong_primary text-center">
             <div>
-              <span className="text-cir_white text-[0.5rem] font-bold">
+              <span className="text-dong_white text-[0.5rem] font-bold">
                 {state}
               </span>
             </div>
@@ -42,15 +42,15 @@ export const ReviewItem = ({
           </span>
         </div>
         <div className="mb-[0.625rem]">
-          <span className="text-[0.625rem] text-cir_black_02 font-bold underline">
+          <span className="text-[0.625rem] text-dong_deep_gray font-bold underline">
             자세히 보기
           </span>
         </div>
         {isImage && (
           <div className="mb-[1.342rem]">
             <ul className="flex gap-[0.548rem]">
-              <li className="w-[6.577rem] h-[6.096rem] bg-cir_black_03 rounded-lg"></li>
-              <li className="w-[6.577rem] h-[6.096rem] bg-cir_black_03 rounded-lg"></li>
+              <li className="w-[6.577rem] h-[6.096rem] bg-dong_light_gray rounded-lg"></li>
+              <li className="w-[6.577rem] h-[6.096rem] bg-dong_light_gray rounded-lg"></li>
             </ul>
           </div>
         )}

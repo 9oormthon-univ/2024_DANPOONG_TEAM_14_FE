@@ -13,10 +13,10 @@ export const ProfileEditPage = () => {
     <div className="flex flex-col items-center mt-20">
       <div className="mb-1">
         <div className="relative">
-          <div className="w-[4.688rem] h-[4.688rem] bg-cir_black_03 rounded-[50%]"></div>
-          <div className="w-[2.313rem] h-[2.313rem] bg-cir_white rounded-[50%] absolute bottom-[-0.25rem] right-[-0.375rem] z-10 flex justify-center items-center">
-            <div className="w-[2.125rem] h-[2.125rem] bg-cir_black_03 rounded-[50%] flex justify-center items-center">
-              <FiCamera className="w-3 h-3 text-cir_white" />
+          <div className="w-[4.688rem] h-[4.688rem] bg-dong_light_gray rounded-[50%]"></div>
+          <div className="w-[2.313rem] h-[2.313rem] bg-dong_white rounded-[50%] absolute bottom-[-0.25rem] right-[-0.375rem] z-10 flex justify-center items-center">
+            <div className="w-[2.125rem] h-[2.125rem] bg-dong_light_gray rounded-[50%] flex justify-center items-center">
+              <FiCamera className="w-3 h-3 text-dong_white" />
             </div>
           </div>
         </div>
@@ -77,7 +77,7 @@ export const ProfileEditPage = () => {
               navigate("/circle-me/profile/edit/types")
             }}
           >
-            <span className="text-cir_black_02 text-xs font-bold leading-5">
+            <span className="text-dong_deep_gray text-xs font-bold leading-5">
               변경하기
             </span>
           </div>

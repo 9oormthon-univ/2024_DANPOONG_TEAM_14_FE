@@ -34,7 +34,7 @@ export const AcceptPage = () => {
           전체 동의
         </CheckboxInput>
       </div>
-      <hr className="w-[21.5rem] h-[0.031rem] bg-cir_black_02 font-bold ml-[1.375rem]" />
+      <hr className="w-[21.5rem] h-[0.031rem] bg-dong_deep_gray font-bold ml-[1.375rem]" />
       <ul className="list-none flex flex-col gap-7 mt-7">
         <li className="relative">
           <CheckboxInput
@@ -45,7 +45,7 @@ export const AcceptPage = () => {
           >
             이용약관 동의
           </CheckboxInput>
-          <span className="text-cir_blue_01 text-xs font-medium absolute top-[0.125rem] left-40">
+          <span className="text-dong_secondary text-xs font-medium absolute top-[0.125rem] left-40">
             (필수)
           </span>
         </li>
@@ -58,7 +58,7 @@ export const AcceptPage = () => {
           >
             위치기반 서비스 이용 약관 동의
           </CheckboxInput>
-          <span className="text-cir_blue_01 text-xs font-medium absolute top-[0.125rem] left-64">
+          <span className="text-dong_secondary text-xs font-medium absolute top-[0.125rem] left-64">
             (필수)
           </span>
         </li>
@@ -71,7 +71,7 @@ export const AcceptPage = () => {
           >
             개인정보 수집 및 이용 동의
           </CheckboxInput>
-          <span className="text-cir_blue_01 text-xs font-medium absolute top-[0.125rem] left-[14.5rem]">
+          <span className="text-dong_secondary text-xs font-medium absolute top-[0.125rem] left-[14.5rem]">
             (필수)
           </span>
         </li>
