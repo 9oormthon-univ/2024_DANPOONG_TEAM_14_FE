@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import { IoIosArrowBack } from "react-icons/io";
@@ -15,6 +15,7 @@ export const Header = () => {
   const navigate = useNavigate();
   const storeType = useStoreType();
   const headerTitle = useGetHeaderTitle();
+  const { id } = useParams<{ id: string }>();
 
   const [showPopup, setShowPopup] = useState(false);
   const [xClick, setXClick] = useState("");
@@ -113,7 +114,7 @@ export const Header = () => {
           <div className="w-full h-full">
             <input
               type="text"
-              className="box-border border-solid border-2 h-full px-10 placeholder-dong_light_black placeholder-bold rounded-lg text-sm"
+              className="box-border border-solid border-2 h-14 px-10 placeholder-dong_light_black placeholder-bold rounded-lg text-sm"
               placeholder="가게명/동네를 입력하세요"
               value={xClick}
               onChange={(e) => setXClick(e.target.value)} // 상태 업데이트
@@ -128,31 +129,6 @@ export const Header = () => {
           >
             <img src={Xicon} />
           </div>
-        </div>
-        <div className="flex items-center">
-          <ul className="flex gap-1">
-            <li>
-              <div className="w-20 h-7 rounded-lg bg-dong_primary flex justify-center">
-                <select
-                  name="category"
-                  id="category"
-                  className="bg-dong_primary w-full h-full rounded-lg text-xs text-dong_white text-center"
-                >
-                  <option value="distance">거리순</option>
-                  <option value="correct">정확도순</option>
-                </select>
-              </div>
-            </li>
-            <li>
-              <CategoryItem>카페</CategoryItem>
-            </li>
-            <li>
-              <CategoryItem>음식점</CategoryItem>
-            </li>
-            <li>
-              <CategoryItem>편의시설</CategoryItem>
-            </li>
-          </ul>
         </div>
       </div>
     );
@@ -175,9 +151,16 @@ export const Header = () => {
           </div>
         </div>
         <div>
-          <span className="text-dong_light_black text-sm font-bold">
-            {headerTitle}
-          </span>
+          {/* review/:id 경로일 경우 정중앙에 "집에가고싶다" 표시 */}
+          {id ? (
+            <span className="text-dong_light_black text-sm font-bold">
+              {id}
+            </span>
+          ) : (
+            <span className="text-dong_light_black text-sm font-bold">
+              {headerTitle}
+            </span>
+          )}
         </div>
         {location.pathname === "/circle-me/profile/edit" ? (
           <div
@@ -189,9 +172,7 @@ export const Header = () => {
               저장
             </span>
           </div>
-        ) : location.pathname.includes("/review") ? (
-          <div></div>
-        ) : (
+        ) : location.pathname.includes("/profile") ? (
           <div
             className="flex flex-col justify-center fixed right-7 top-7"
             onClick={() => {
@@ -207,7 +188,7 @@ export const Header = () => {
               </span>
             </div>
           </div>
-        )}
+        ) : null}
       </div>
     );
   }
