@@ -1,41 +1,39 @@
+// import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-
-import { ReviewItem } from "../../components/ReviewItem";
+import emotion1_sel from "../../assets/images/emotion-1-sel.svg";
+import emotion1_nsel from "../../assets/images/emotion-1-nsel.svg";
+import emotion2_sel from "../../assets/images/emotion-2-sel.svg";
+import emotion2_nsel from "../../assets/images/emotion-2-nsel.svg";
+import emotion3_sel from "../../assets/images/emotion-3-sel.svg";
+import emotion3_nsel from "../../assets/images/emotion-3-nsel.svg";
+import { ReviewDetailItem } from "../../components/ReviewDetailItem";
 import { CheckPopup } from "../../components/CheckPopup";
 
-import emotion1_sel from "../../assets/images/emotion-1-sel.svg";
-import emotion2_sel from "../../assets/images/emotion-2-sel.svg";
-import emotion3_sel from "../../assets/images/emotion-3-sel.svg";
+export const ReviewDetailPage = () => {
+  // const { id } = useParams<{ id: string }>();
 
-export const MyReviewPage = () => {
   const [reviewInfo, setReviewInfo] = useState([
     {
-      store: "소고기 전문 식당",
-      state: emotion1_sel,
-      review:
-        "고기도 너무 맛있고 전반적으로 만족스럽습니다.불편함이 적었던 식당입니다!고기도 너무 맛있고 전반적으로 만족스럽습니다.불편함이 적었던 식당입니다!고기도 너무 맛있고 전반적으로 만족스럽습니다.불편함이 적었던 식당입니다!고기도 너무 맛있고 전반적으로 만족스럽습니다.불편함이 적었던 식당입니다!고기도 너무 맛있고 전반적으로 만족스럽습니다.불편함이 적었던 식당입니다!고기도 너무 맛있고 전반적으로 만족스럽습니다.불편함이 적었던 식당입니다!고기도 너무 맛있고 전반적으로 만족스럽습니다.불편함이 적었던 식당입니다!고기도 너무 맛있고 전반적으로 만족스럽습니다.불편함이 적었던 식당입니다!",
-      isImage: true,
+      user: "사용자1",
+      userImg: "",
+      level: 1,
+      state: "장애인",
+      emotion: "emotion1",
+      review: "편했어요",
+      picture: [],
+      comment: 0,
+      like: 0,
     },
     {
-      store: "소고기 전문 식당",
-      state: emotion2_sel,
-      review:
-        "고기도 너무 맛있고 전반적으로 만족스럽습니다.불편함이 적었던 식당입니다!",
-      isImage: false,
-    },
-    {
-      store: "소고기 전문 식당",
-      state: emotion3_sel,
-      review:
-        "고기도 너무 맛있고 전반적으로 만족스럽습니다.불편함이 적었던 식당입니다!",
-      isImage: true,
-    },
-    {
-      store: "소고기 전문 식당",
-      state: emotion1_sel,
-      review:
-        "고기도 너무 맛있고 전반적으로 만족스럽습니다.불편함이 적었던 식당입니다!",
-      isImage: true,
+      user: "사용자2",
+      userImg: "",
+      level: 2,
+      state: "노인",
+      emotion: "emotion2",
+      review: "편했어요",
+      picture: [],
+      comment: 0,
+      like: 0,
     },
   ]);
 
@@ -61,20 +59,41 @@ export const MyReviewPage = () => {
   };
 
   return (
-    <div className="mt-24 px-8">
-      <div className="mb-5">
-        <span className="text-lg font-bold">내 작성 리뷰</span>
+    <div className="mt-20 mx-8 box-border">
+      {/* 후기 비율 */}
+      <div className="flex flex-col border-b border-dong_deep_gray pb-6">
+        <div className="font-bold">후기 12명</div>
+        <div className="flex gap-2 flex-col mt-3">
+          <div className="flex">
+            <img src={emotion1_sel} alt="emotion1" className="w-8" />
+            <div className="h-8 w-full ml-3 bg-dong_light_gray rounded-lg"></div>
+          </div>
+          <div className="flex">
+            <img src={emotion2_nsel} alt="emotion1" className="w-8" />
+            <div className="h-8 w-full ml-3 bg-dong_light_gray rounded-lg"></div>
+          </div>
+          <div className="flex">
+            <img src={emotion3_nsel} alt="emotion1" className="w-8" />
+            <div className="h-8 w-full ml-3 bg-dong_light_gray rounded-lg"></div>
+          </div>
+        </div>
       </div>
-      <div className="pb-4 overflow-y-auto">
+      {/* 개별 후기 */}
+      <div className="my-6 overflow-y-auto">
         <ul className="flex flex-col items-center gap-4">
           {reviewInfo.map((review, index) => (
             <li key={index}>
-              <ReviewItem
+              <ReviewDetailItem
                 key={index}
-                store={review.store}
+                user={review.user}
+                userImg={review.userImg}
+                level={review.level}
                 state={review.state}
+                emotion={review.emotion}
                 review={review.review}
-                isImage={review.isImage}
+                picture={review.picture}
+                comment={review.comment}
+                like={review.like}
                 onClick={(e) => {
                   console.log(e.currentTarget.textContent);
                   if (e.currentTarget.textContent === "수정") {
