@@ -1,37 +1,75 @@
 import { useNavigate } from "react-router-dom";
-
-import { FiCamera } from "react-icons/fi";
+import { useState, useEffect } from "react";
 
 import { ActionButtons } from "../../components/ActionButtons";
-import { InputItem } from "../../components/InputItem";
 import { TypeSelectItem } from "../../components/TypeSelectItem";
+import { getUserInfo } from "../../api/userInfoApi";
+import { deleteUser } from "../../api/loginApi";
 
 export const ProfileEditPage = () => {
   const navigate = useNavigate();
+  const [userType, setUserType] = useState<string>(""); // 초기값 비어 있음
+  const [username, setUsername] = useState<string>("사용자 이름");
+  const [profileImageUrl, setProfileImageUrl] = useState<string>("");
+
+  const userTypeMapping: { [key: string]: string } = {
+    DISABLED: "장애인",
+    ASSISTANCE_DOG: "안내견 보호자",
+    ELDERLY: "노약자",
+    CHILD: "어린이",
+  };
+
+  // 초기 사용자 정보를 가져옴
+  useEffect(() => {
+    const fetchUserType = async () => {
+      try {
+        const userInfo = await getUserInfo();
+        console.log("Fetched user info:", userInfo);
+        setUserType(userInfo.data.userType); // API에서 userType 가져와 설정
+        setUsername(userInfo.data.username);
+        setProfileImageUrl(userInfo.data.profileImageUrl);
+      } catch (error) {
+        console.error("Failed to fetch user info:", error);
+        alert("사용자 정보를 불러오는데 실패했습니다.");
+      }
+    };
+
+    fetchUserType();
+  }, []);
+
+  // 회원 탈퇴 처리 함수
+  const handleDeleteAccount = async () => {
+    const confirmDelete = window.confirm(
+      "정말로 회원탈퇴를 진행하시겠습니까? 이 작업은 되돌릴 수 없습니다.",
+    );
+    if (!confirmDelete) return;
+
+    try {
+      await deleteUser();
+      console.log("회원 탈퇴가 완료되었습니다.");
+      navigate("/"); // 탈퇴 후 홈으로 리다이렉트
+    } catch (error) {
+      console.error("Failed to delete account:", error);
+      console.log("회원 탈퇴에 실패했습니다. 다시 시도해주세요.");
+    }
+  };
 
   return (
     <div className="flex flex-col items-center mt-24">
       <div className="mb-1">
         <div className="relative">
-          <div className="w-[4.688rem] h-[4.688rem] bg-dong_deep_gray rounded-[50%]"></div>
-          <div className="w-[2.313rem] h-[2.313rem] bg-dong_white rounded-[50%] absolute bottom-[-0.25rem] right-[-0.375rem] z-10 flex justify-center items-center">
-            <div className="w-[2.125rem] h-[2.125rem] bg-dong_deep_gray rounded-[50%] flex justify-center items-center">
-              <FiCamera className="w-3 h-3 text-dong_white" />
-            </div>
+          <div className="w-16 h-16 bg-dong_deep_gray rounded-full">
+            <img
+              src={profileImageUrl}
+              alt="프로필 이미지"
+              className="w-full h-full object-cover rounded-full"
+            />
           </div>
         </div>
       </div>
       <div className="mb-5">
         <div className="mb-4">
-          <span className="text-base leading-5 font-bold">이름</span>
-        </div>
-        <div>
-          <InputItem
-            type={"text"}
-            width={333}
-            height={55}
-            placeholder={"사용자"}
-          />
+          <span className="text-base mt-2 font-bold">{username}</span>
         </div>
       </div>
       <div className="flex flex-col items-center">
@@ -50,13 +88,8 @@ export const ProfileEditPage = () => {
           </div>
         </div>
         <div>
-          <TypeSelectItem
-            selected={true}
-            onClick={() => {
-              console.log();
-            }}
-          >
-            장애인
+          <TypeSelectItem selected={true} onClick={() => {}}>
+            {userTypeMapping[userType]}
           </TypeSelectItem>
         </div>
       </div>
@@ -64,20 +97,15 @@ export const ProfileEditPage = () => {
         <div className="mb-4">
           <ActionButtons
             onClick={() => {
-              navigate("/");
+              navigate("/circle-me/profile");
             }}
             disabled={false}
           >
-            로그아웃
+            저장
           </ActionButtons>
         </div>
         <div>
-          <ActionButtons
-            onClick={() => {
-              navigate("/");
-            }}
-            disabled={false}
-          >
+          <ActionButtons onClick={handleDeleteAccount} disabled={false}>
             회원탈퇴
           </ActionButtons>
         </div>

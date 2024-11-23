@@ -1,26 +1,18 @@
 import axios from "axios";
 
-const BASE_URL = import.meta.env.VITE_BASE_API_URL || "";
-
-export interface SaveUserTypeResponse {
-  status: string;
-  data: number;
-  message: string;
-}
-
 // 사용자 유형 저장 API 함수
 export const postUserType = async (userType: string): Promise<any> => {
   try {
     console.log("Sending user type:", userType);
 
     const response = await axios.post(
-      `${BASE_URL}/api/user/save`,
+      `https://api.circleme.site/api/user/save`,
       { userType },
       {
         headers: {
           "Content-Type": "application/json",
         },
-        withCredentials: true, // 쿠키 포함 설정
+        withCredentials: true, // 쿠키 포함
       },
     );
 
