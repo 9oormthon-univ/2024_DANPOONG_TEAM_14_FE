@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { BookmarkItem } from "../../components/BookmarkItem";
 import { ActionButtons } from "../../components/ActionButtons";
@@ -27,6 +27,14 @@ export const BookmarkPage = () => {
   const [checkedIndexes, setCheckedIndexes] = useState<number[]>([]);
   const [showPopup, setShowPopup] = useState(false);
   const [deletedIndex, setDeletedIndex] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (showPopup) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [showPopup]);
 
   const handleCheck = (index: number, checked: boolean) => {
     setCheckedIndexes((prev) =>
@@ -69,8 +77,8 @@ export const BookmarkPage = () => {
   };
 
   return (
-    <div className="flex flex-col items-center relative">
-      <div className="pt-[7.375rem] flex items-center gap-40 mb-5">
+    <div className="flex flex-col items-center relative h-screen">
+      <div className="w-full mt-24 flex items-center justify-between mb-5 px-10">
         <div>
           <span className="text-lg font-bold leading-5">내 북마크 장소</span>
         </div>
@@ -82,13 +90,13 @@ export const BookmarkPage = () => {
             }
           }}
         >
-          <span className="text-xs font-bold text-dong_light_gray underline">
+          <span className="text-xs font-bold text-dong_light_black underline">
             전체 삭제
           </span>
         </div>
       </div>
-      <div className="mb-[10rem]">
-        <ul className="flex flex-col gap-2">
+      <div className="flex-1 overflow-y-auto w-full px-8">
+        <ul className="flex flex-col gap-4">
           {bookmarkStore.map((bookmark, index) => (
             <li key={index}>
               <BookmarkItem
@@ -105,7 +113,7 @@ export const BookmarkPage = () => {
           ))}
         </ul>
       </div>
-      <div className="w-[24.563rem] h-[3.75rem] text-center fixed bottom-[3.625rem]">
+      <div className="h-[3.75rem] text-center fixed bottom-5">
         <ActionButtons
           onClick={() => {
             if (checkedIndexes.length > 0) {
@@ -118,7 +126,7 @@ export const BookmarkPage = () => {
         </ActionButtons>
       </div>
       {showPopup && (
-        <div className="w-full h-screen fixed flex justify-center items-center">
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <CheckPopup
             usage="delete"
             onClick={(e: React.MouseEvent<HTMLInputElement>) =>
