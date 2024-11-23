@@ -19,6 +19,16 @@ export const Header = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [xClick, setXClick] = useState("");
 
+  // 검색 실행 함수
+  const handleSearch = () => {
+    if (!xClick.trim()) {
+      alert("검색어를 입력하세요!");
+      return;
+    }
+    // 검색어를 /circle-me 페이지의 state로 전달하며 이동
+    navigate("/circle-me", { state: { keyword: xClick } });
+  };
+
   const handlePopupClick = (e: React.MouseEvent<HTMLInputElement>) => {
     const buttonText = e.currentTarget.textContent;
     if (buttonText === "예") {
@@ -41,7 +51,8 @@ export const Header = () => {
     location.pathname === "/accept" ||
     location.pathname.includes("/types") ||
     location.pathname.includes("/category") ||
-    location.pathname === "/circle-me/bookmark"
+    location.pathname === "/circle-me/bookmark" ||
+    location.pathname.includes("/market")
   ) {
     return (
       <div className="w-screen h-20 m-auto bg-dong_white">
@@ -75,7 +86,8 @@ export const Header = () => {
               </span>
             </div>
           )}
-          {location.pathname === "/types" && (
+          {(location.pathname === "/types" ||
+            location.pathname.includes("market")) && (
             <div className="flex absolute right-7 top-7">
               <div className="flex items-center">
                 <span className="text-sm font-bold text-dong_light_black">
@@ -104,7 +116,10 @@ export const Header = () => {
               className="box-border border-solid border-2 h-full px-10 placeholder-dong_light_black placeholder-bold rounded-lg text-sm"
               placeholder="가게명/동네를 입력하세요"
               value={xClick}
-              onChange={(e) => setXClick(e.target.value)}
+              onChange={(e) => setXClick(e.target.value)} // 상태 업데이트
+              onKeyDown={(e) => {
+                if (e.key === "Enter") handleSearch();
+              }} // 엔터 키 이벤트
             />
           </div>
           <div
