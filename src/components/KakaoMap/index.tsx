@@ -7,13 +7,6 @@ declare global {
   }
 }
 
-<<<<<<< HEAD
-export const KakaoMap = ({ categories }: { categories: string[] }) => {
-  const [location, setLocation] = useState({
-    latitude: 37.566826,
-    longitude: 126.9786567,
-  });
-=======
 interface Place {
   place_name: string;
   address_name: string;
@@ -31,7 +24,6 @@ interface PlaceData {
 }
 
 export const KakaoMap = ({ categories }: { categories: string[] }) => {
->>>>>>> 3f0f244672bea73d79fea755c1f5745dca0f5423
   const [map, setMap] = useState<any>(null);
   const [location, setLocation] = useState({
     latitude: 33.450701,
@@ -85,33 +77,6 @@ export const KakaoMap = ({ categories }: { categories: string[] }) => {
   // 지도 초기화
   useEffect(() => {
     const container = document.getElementById("map");
-<<<<<<< HEAD
-    const options = {
-      center: new window.kakao.maps.LatLng(
-        location.latitude,
-        location.longitude,
-      ),
-      level: 3,
-    };
-    const mapInstance = new window.kakao.maps.Map(container, options);
-    setMap(mapInstance);
-
-    const currentLocationMarkerImage = new window.kakao.maps.MarkerImage(
-      "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png",
-      new window.kakao.maps.Size(24, 35),
-    );
-
-    const currentLocationMarker = new window.kakao.maps.Marker({
-      position: new window.kakao.maps.LatLng(
-        location.latitude,
-        location.longitude,
-      ),
-      map: mapInstance,
-      image: currentLocationMarkerImage,
-    });
-
-    setMarkers((prevMarkers) => [...prevMarkers, currentLocationMarker]);
-=======
     if (container) {
       const options = {
         center: new window.kakao.maps.LatLng(
@@ -141,7 +106,6 @@ export const KakaoMap = ({ categories }: { categories: string[] }) => {
       // setMarkers((prevMarkers) => [...prevMarkers, currentLocationMarker]);
       setMarkers([currentLocationMarker]);
     }
->>>>>>> 3f0f244672bea73d79fea755c1f5745dca0f5423
   }, [location]);
 
   // 키워드 검색 및 마커 표시
