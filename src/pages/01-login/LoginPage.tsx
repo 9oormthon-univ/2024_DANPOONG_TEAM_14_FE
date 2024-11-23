@@ -1,10 +1,10 @@
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 import logo from "../../assets/images/logo.svg";
 import kakao from "../../assets/images/kakao_login_medium_wide.png";
 
 export const LoginPage = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   return (
     <div className="flex flex-col items-center justify-center h-screen">
@@ -21,7 +21,8 @@ export const LoginPage = () => {
       <div
         className=" h-14 relative flex justify-center items-center rounded-lg  "
         onClick={() => {
-          navigate("/accept");
+          window.location.href =
+            "https://api.circleme.site/oauth2/authorization/kakao";
         }}
       >
         <img src={kakao} />
