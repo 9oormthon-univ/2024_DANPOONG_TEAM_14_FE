@@ -35,6 +35,7 @@ export const KakaoMap = ({ categories }: { categories: string[] }) => {
   const keyword = locationState?.keyword || "";
   const navigate = useNavigate();
 
+  const [result, setResult] = useState<any[]>([]);
   const postPlaceInfo = async (data: PlaceData) => {
     try {
       const response = await fetch(
@@ -51,6 +52,7 @@ export const KakaoMap = ({ categories }: { categories: string[] }) => {
       );
 
       const result = await response.json();
+      setResult(result);
 
       console.log(result);
     } catch (error) {
@@ -136,7 +138,7 @@ export const KakaoMap = ({ categories }: { categories: string[] }) => {
                 // 마커 클릭 이벤트
                 window.kakao.maps.event.addListener(marker, "click", () => {
                   infoWindow.open(map, marker);
-                  navigate("/circle-me/market", { state: { place } });
+                  navigate("/circle-me/market", { state: { place, result } });
                 });
 
                 return marker;

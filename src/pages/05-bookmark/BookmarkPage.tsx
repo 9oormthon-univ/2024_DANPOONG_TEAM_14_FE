@@ -4,25 +4,69 @@ import { BookmarkItem } from "../../components/BookmarkItem";
 import { ActionButtons } from "../../components/ActionButtons";
 import { CheckPopup } from "../../components/CheckPopup";
 
+interface BookmarkData {
+  placeId: number;
+  placeName: string;
+  placeCategory: string;
+}
+
 export const BookmarkPage = () => {
-  const [bookmarkStore, setBookmarkStore] = useState([
-    {
-      name: "스타벅스 본점",
-      type: "카페",
-    },
-    {
-      name: "스타벅스1",
-      type: "카페",
-    },
-    {
-      name: "스타벅스2",
-      type: "카페",
-    },
-    {
-      name: "스타벅스3",
-      type: "카페",
-    },
-  ]);
+  const [bookmarkStore, setBookmarkStore] = useState<BookmarkData[]>([]);
+
+  const getBookmark = async () => {
+    try {
+      const response = await fetch(
+        "https://api.circleme.site/api/bookmark/get",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzODA0NzY5MjUyIiwiaWF0IjoxNzMyMzcyNzM4LCJleHAiOjE3MzI0NTkxMzh9.oL0THgxo6JKL-sNDsyhdzpGUroVNfWCvjlNVvAnuX0g",
+          },
+          credentials: "include",
+        },
+      );
+
+      if (!response.ok) {
+        console.log(response);
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const bdata = await response.json();
+      const data: BookmarkData[] = bdata.data;
+
+      setBookmarkStore(data);
+    } catch (error) {
+      console.log("Error fetching bookmark data:", error);
+    }
+  };
+
+  const deleteBookmark = async (id: number) => {
+    try {
+      const response = await fetch(
+        "https://api.circleme.site/api/bookmark/delete?placeIds=" + id,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzODA0NzY5MjUyIiwiaWF0IjoxNzMyMzcyNzM4LCJleHAiOjE3MzI0NTkxMzh9.oL0THgxo6JKL-sNDsyhdzpGUroVNfWCvjlNVvAnuX0g",
+          },
+        },
+      );
+
+      if (!response.ok) {
+        console.log(response);
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+    } catch (error) {
+      console.log("Error delete bookmark:", error);
+    }
+  };
+
+  useEffect(() => {
+    getBookmark();
+  }, []);
 
   const [checkedIndexes, setCheckedIndexes] = useState<number[]>([]);
   const [showPopup, setShowPopup] = useState(false);
@@ -44,10 +88,10 @@ export const BookmarkPage = () => {
 
   const handleDeleteBookmark = (index: number) => {
     if (index === -1) {
-      setBookmarkStore([]);
+      bookmarkStore.map((bookmark) => deleteBookmark(bookmark.placeId));
       setCheckedIndexes([]);
     } else {
-      setBookmarkStore((prev) => prev.filter((_, i) => i !== index));
+      deleteBookmark(bookmarkStore[index].placeId);
       setCheckedIndexes((prev) =>
         prev.filter((i) => i !== index).map((i) => (i > index ? i - 1 : i)),
       );
@@ -56,8 +100,8 @@ export const BookmarkPage = () => {
   };
 
   const handleDeleteChecked = () => {
-    setBookmarkStore((prev) =>
-      prev.filter((_, i) => !checkedIndexes.includes(i)),
+    checkedIndexes.forEach((index) =>
+      deleteBookmark(bookmarkStore[index].placeId),
     );
     setCheckedIndexes([]);
   };
@@ -100,8 +144,8 @@ export const BookmarkPage = () => {
           {bookmarkStore.map((bookmark, index) => (
             <li key={index}>
               <BookmarkItem
-                name={bookmark.name}
-                type={bookmark.type}
+                name={bookmark.placeName}
+                type={bookmark.placeCategory}
                 onClick={() => {
                   setDeletedIndex(index);
                   setShowPopup(true);
