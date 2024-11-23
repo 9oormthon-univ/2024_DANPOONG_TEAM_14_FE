@@ -35,7 +35,6 @@ export const KakaoMap = ({ categories }: { categories: string[] }) => {
   const keyword = locationState?.keyword || "";
   const navigate = useNavigate();
 
-  const [result, setResult] = useState<any[]>([]);
   const postPlaceInfo = async (data: PlaceData) => {
     try {
       const response = await fetch(
@@ -52,9 +51,6 @@ export const KakaoMap = ({ categories }: { categories: string[] }) => {
       );
 
       const result = await response.json();
-      setResult(result);
-
-      console.log(result);
     } catch (error) {
       console.log(error);
     }
@@ -138,7 +134,19 @@ export const KakaoMap = ({ categories }: { categories: string[] }) => {
                 // 마커 클릭 이벤트
                 window.kakao.maps.event.addListener(marker, "click", () => {
                   infoWindow.open(map, marker);
-                  navigate("/circle-me/market", { state: { place, result } });
+                  console.log(place);
+
+                  const placeInfo = {
+                    latitude: place.y,
+                    longitude: place.x,
+                    plcaeName: place.place_name,
+                    category: place.category_group_name,
+                  };
+
+                  postPlaceInfo(placeInfo);
+                  navigate("/circle-me/market", {
+                    state: { place },
+                  });
                 });
 
                 return marker;
@@ -179,15 +187,6 @@ export const KakaoMap = ({ categories }: { categories: string[] }) => {
                 window.kakao.maps.event.addListener(marker, "click", () => {
                   infowindow.open(map, marker);
 
-                  const placeInfo = {
-                    latitude: place.y,
-                    longitude: place.x,
-                    plcaeName: place.place_name,
-                    category: place.category_group_name,
-                  };
-
-                  console.log(placeInfo);
-                  postPlaceInfo(placeInfo);
                   // 장소 데이터를 MarketPage로 전달
                   navigate("/circle-me/market", { state: { place } });
                 });

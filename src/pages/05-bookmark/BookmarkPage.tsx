@@ -36,7 +36,11 @@ export const BookmarkPage = () => {
       const bdata = await response.json();
       const data: BookmarkData[] = bdata.data;
 
-      setBookmarkStore(data);
+      if (!Array.isArray(data) || data.length === 0) {
+        setBookmarkStore([]);
+      } else {
+        setBookmarkStore(data);
+      }
     } catch (error) {
       console.log("Error fetching bookmark data:", error);
     }
@@ -89,9 +93,13 @@ export const BookmarkPage = () => {
   const handleDeleteBookmark = (index: number) => {
     if (index === -1) {
       bookmarkStore.map((bookmark) => deleteBookmark(bookmark.placeId));
+      setBookmarkStore([]);
+
       setCheckedIndexes([]);
     } else {
       deleteBookmark(bookmarkStore[index].placeId);
+      setBookmarkStore((prev) => prev.filter((_, i) => i !== index));
+
       setCheckedIndexes((prev) =>
         prev.filter((i) => i !== index).map((i) => (i > index ? i - 1 : i)),
       );
@@ -102,6 +110,9 @@ export const BookmarkPage = () => {
   const handleDeleteChecked = () => {
     checkedIndexes.forEach((index) =>
       deleteBookmark(bookmarkStore[index].placeId),
+    );
+    setBookmarkStore((prev) =>
+      prev.filter((_, i) => !checkedIndexes.includes(i)),
     );
     setCheckedIndexes([]);
   };
